@@ -536,8 +536,9 @@ def A_Star_Search(maze, vis, Dtype):
             for a in range(len(q)):
                 if(e == q[a][1].data):                         # Find where the node is already in the container
                     if(newDistance < q[a][0]):
-                        q[a] = [newDistance, newchild, counter] 
-                    has = True
+                        q.pop(a)
+                    else:
+                        has = True
             if(has == False):                                   # Insert it into the container
                 for b in range(len(q)):
                     if(newDistance < q[a][0]):
@@ -706,7 +707,7 @@ def BFS_SearchRunner(maze,vis):
 f = open("open_maze.txt", "r")
 maze_str = f.read()
 maze = helper.parse_maze(maze_str)
-result = Weighted_A_Star_Search(maze,False, "EU", 3)
+result = A_Star_Search(maze,False, "EU")
 print("Path cost: ", result[0])
 print("Explored squares: ", result[1])
 print("Max Size: ", result[2])

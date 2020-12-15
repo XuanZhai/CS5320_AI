@@ -116,7 +116,7 @@ def model_reflex_agent(lengthoftable,p,printed):
     Matrix = np.random.choice(a=[False,True], size=(lengthoftable,lengthoftable), p = [p, 1-p])
     CurrentRow = random.randint(0,lengthoftable - 1)
     CurrentColumn = random.randint(0,lengthoftable - 1)
-    
+    print(np.sum(Matrix))
     if(printed == True) : print("Room:\n", Matrix, "\nStarts at: [" ,CurrentRow, "," ,CurrentColumn , "]" )
     
     while(CurrentRow != 0):             # Since the start location is random, the agent will firstly go to the top-left
@@ -276,5 +276,5 @@ def obstacle_agent(lengthoftable,p,printed):
     return step
 
 
-print( "step is ", obstacle_agent(5,0.2,True))
+print( "step is ", model_reflex_agent(5,0.8,False))
     
